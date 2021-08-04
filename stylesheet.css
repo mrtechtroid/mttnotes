@@ -1,0 +1,190 @@
+body{
+    min-width: 310px;
+}
+  #newnote:hover,#removenotes:focus,#removenotes:hover, #gitredirect:focus,#gitredirect:hover, #newnote:focus,#refresh:hover, #refresh:focus,#savenoteCloud:focus,#savenoteCloud:hover, #newdestructnote:hover,#newdestructnote:focus, #savenote:hover,#savenote:focus, #uploadnote:hover,#uploadnote:focus, #aboutus:hover,#aboutus:focus, #savenoteTxt:hover,#savenoteTxt:focus{
+      transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      position:relative;
+      }
+    .notes, #about {
+        background-color: crimson;
+        text-decoration: none;
+        color: #000;
+        background-color: #ffc;
+        display: inline-block;
+        height: 250px;
+        width: 250px;
+        padding: 10px;
+        -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
+        -webkit-box-shadow: 5px 5px 7px  rgba(33, 33, 33, .7);
+        box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+        transition: transform .15s linear;
+        -moz-transition: -moz-transform .15s linear;
+        -o-transition: -o-transform .15s linear;
+        -webkit-transition: -webkit-transform .15s linear;
+        border-style: solid;
+        margin:10px;
+        position: relative;
+        
+    }
+    .fa fa-times{
+        padding: 1px 3px;
+        margin: 10px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .notes-title , .notes-content, .dnotes-content,.dnotes-title ,#Abt_Title,#Abt_Content{
+        font-family: 'Chewy', arial, sans-serif;
+        background: rgba(0, 0, 0, 0); /* transparent background */
+        resize: none;
+        padding: 3px;
+        border-style: none;
+    }
+    .notes-title, .dnotes-title,#Abt_Title, #upl_Title, #dwn_Title,#psd_Title {
+        font-size: 140%;
+        font-weight: bold;
+        height: 30px;
+        width: 80%;
+        font-family: Verdana;
+    }
+    .notes-content,#Abt_Content {
+        font-size:120%;
+         height: 60%;
+         width: 95%;
+         font-family: Verdana;
+    }
+    .dnotes-content {
+        font-size:120%;
+         height: 50%;
+         width: 95%;
+    }
+    #todolist {
+        text-decoration: none;
+        color: #000;
+        background: rgb(54, 238, 30);
+        height: 25px;
+        width: 250px;
+        padding: 10px;
+        -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
+        -webkit-box-shadow: 5px 5px 7px  rgba(33, 33, 33, .7);
+        box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+        transition: transform .15s linear;
+        -moz-transition: -moz-transform .15s linear;
+        -o-transition: -o-transform .15s linear;
+        -webkit-transition: -webkit-transform .15s linear;
+        border-style: solid;
+        margin:10px;
+        position: relative;
+        overflow: hidden;
+        
+    }
+    .closebtn{
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 20px;
+    }
+    .donebtn {
+        position: absolute;
+        top: 0;
+        right: 35px;
+        font-size: 20px; 
+    }
+    .dnotes {
+        background-color: crimson;
+        text-decoration: none;
+        color: #000;
+        background: rgb(14, 204, 230);
+        display: inline-block;
+        height: 250px;
+        width: 250px;
+        padding: 10px;
+        -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
+        -webkit-box-shadow: 5px 5px 7px  rgba(33, 33, 33, .7);
+        box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+        transition: transform .15s linear;
+        -moz-transition: -moz-transform .15s linear;
+        -o-transition: -o-transform .15s linear;
+        -webkit-transition: -webkit-transform .15s linear;
+        border-style: solid;
+        margin:10px
+        
+    }
+    .t0d0 {
+        position: relative;
+        font-weight: bold;
+        color: white;
+    }
+    ::-webkit-scrollbar {
+width: 12px;
+}
+
+
+::-webkit-scrollbar-track {
+background:rgb(255, 0, 212);
+}
+
+.t0d0-done {
+    background-color: rgb(220, 20, 60);
+    text-decoration: line-through;
+}
+
+.t0d0-pending {
+    background-color: rgb(0, 139, 139);
+}
+
+
+::-webkit-scrollbar-thumb {
+background: #6d6765;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+#about , #upload, #download{
+    background-color: crimson;
+    text-decoration: none;
+    color: #000;
+    background-color: rgb(221, 236, 12);
+    display: inline-block;
+    height: 250px;
+    width: 290px;
+    padding: 10px;
+    -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
+    -webkit-box-shadow: 5px 5px 7px  rgba(33, 33, 33, .7);
+    box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+    transition: transform .15s linear;
+    -moz-transition: -moz-transform .15s linear;
+    -o-transition: -o-transform .15s linear;
+    -webkit-transition: -webkit-transform .15s linear;
+    border-style: solid;
+    position: relative;
+    
+}
+.sv_btn {
+    background-color: coral;
+    border:  5px;
+    font-size: 20px;
+    border-radius: 40px 40px 40px 40px;
+    margin: 5px; 
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+.sv_btn:hover{
+    background-color: rgb(61, 194, 199);
+    border: coral 5px;
+    border-radius: 40px 40px 40px 40px;
+}
+.sv_txt {
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: verdana;
+}
+

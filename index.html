@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTT Notes</title>
+    <link rel="icon" href="/assets/favicon.png" type="image/icon type">
+    <meta name="description" content="">
+    <!-- Font Awesome 4.7-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPN8JSN6DJ"></script>
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Questrial -->
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+
+</head>
+
+<body style="background-color: #373c45;">
+    <!-- -->
+    <div id="topnav" style="background-color: cyan;border-radius:30px 30px 30px 30px;font-size: 175%;">
+        <span id="newnote" class="fa fa-sticky-note" style="margin-left:20px;" onclick="addNewNote(0);"></span>
+        <!-- <span id="newdestructnote" class="fa fa-lock" style="margin-left:20px;" onclick="addNewDestructNote();"></span> -->
+        <span id="savenote" class="fa fa-floppy-o" style="margin-left:20px;" onclick="document.getElementById('dwn_overlay').style.display = 'block'"></span>
+        <span id="refresh" class="fa fa-refresh" style="margin-left:20px;" onclick="window.location.reload()"></span>
+        <span id="uploadnote" class="fa fa-upload" style="margin-left:20px;" onclick="document.getElementById('upl_overlay').style.display = 'block'"></span>
+        <span id="aboutus" class="fa fa-info-circle" style="margin-left:20px;" onclick="document.getElementById('abt_overlay').style.display = 'block'"></span>
+        <span id="gitredirect" class="fa fa-github" style="margin-left:20px;" onclick = "window.open('https:github.com/mrtechtroid/mttnotes/')" style = "color:black;"></span>
+        <span style="font-family: Arial; color:blue; float:right; margin-right: 10px; font-size: 25px;background-color: cyan;border-radius: 30px 30px 30px 30px;padding-left:10px;padding-right: 10px;margin-top: 2px;"><b><strong><span style="color: red;">M</span>T<span style="color: rgb(255, 0, 157);">T</span><span style="color: rgb(4, 0, 255);"> Notes</span></strong></b></span>
+    </div>
+    <div id = "abt_overlay" style = "position: fixed; display: block; width: 100%;height: 100%;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0,0,0,0.5);z-index: 2;cursor: pointer;display: none;" onclick = "document.getElementById('abt_overlay').style.display = 'none';"> 
+            <div id="about" style="top: 50%;left: 50%;position: absolute;transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);">
+                <span id="Abt_Title" placeholder="Note Title" maxlength="20" disabled>About</span><a class="closebtn" onclick="document.getElementById('abt_overlay').style.display = 'none'">❌</a><br/><span id="Abt_Content" placeholder="Note Content" disabled style="white-space: pre-wrap;">Made By Mr Techtroid<br/><a href = "https://github.com/mrtechtroid" style = "text-decoration: none;font-weight: bold;">github.com/mrtechtroid</a><br/>Source Code Released Under MTT License<br/>Digital Assets Are Copyrighted</span>
+        </div>
+    </div>
+    <div id = "upl_overlay" style = "position: fixed; display: block; width: 100%;height: 100%;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0,0,0,0.5);z-index: 2;cursor: pointer;display: none;"> 
+        <div id="upload" style="top: 50%;left: 50%;position: absolute;transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);">
+            <span id="upl_Title" placeholder="Upload Note Backup" maxlength="20">Upload Note Backup</span><a class="closebtn" onclick="document.getElementById('upl_overlay').style.display = 'none'">❌</a><br/>
+            <input class = "sv_btn" style = "width:250px" id = "uplfiles" type = "file" accept=".mttn" onchange='openFile(event)'>
+            <input type = "password" id = "up_password" style = "background-color: white; padding: 10px;border-style: solid;margin-left: 5px;" placeholder="Enter Password">
+            <button onclick = "uploadnote()" class = "sv_btn">Upload</button>
+            <p onclick = "" class = "sv_txt">This Will Only Upload Into The Browser.</p>
+            
+        </div>
+    </div>
+    <div id = "dwn_overlay" style = "position: fixed; display: block; width: 100%;height: 100%;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0,0,0,0.5);z-index: 2;cursor: pointer;display: none;"> 
+        <div id="download" style="top: 50%;left: 50%;position: absolute;transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);">
+            <span id="dwn_Title" placeholder="Download Note Backup" maxlength="20">Export.</span><a class="closebtn" onclick="document.getElementById('dwn_overlay').style.display = 'none'">❌</a><br/>
+            <button onclick = "document.getElementById('psd_overlay').style.display = 'block';document.getElementById('dwn_overlay').style.display = 'none'" class = "sv_btn">Encrypted Notes</button>
+            <button onclick = "saveDataNote(2)" class = "sv_btn" style = "display: none;">Sync To Local Storage</button><br>
+            <button onclick = "saveDataNote(3)" class = "sv_btn" style = "display: none;">UnEncrypted Notes As JSON</button><br>
+            <span class = "sv_txt">The Notes Are Encrypted With AES Algorithm </span><br>
+            <span class = "sv_txt">Delete All Notes Here <span id="removenotes" class="fa fa-trash" style="margin-left:20px;" onclick="document.getElementById('areyousure').style.display = 'block'"></span></span><br>
+            <span class = "sv_txt" id = "areyousure" style = "display: none;">Please Type DELETE Here:<input id = "del_notes_all" type = "text"><span class = "sv_btn" onclick = "removeAll()">Confirm</span><span class = "sv_btn" onclick = "document.getElementById('areyousure').style.display = 'none'">No</span></span>
+        </div>
+    </div>
+    <div id = "psd_overlay" style = "position: fixed; display: block; width: 100%;height: 100%;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0,0,0,0.5);z-index: 2;cursor: pointer;display: none;"> 
+        <div id="download" style="top: 50%;left: 50%;position: absolute;transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);">
+            <span id="psd_Title" placeholder="Download Note Backup" maxlength="20">Enter Password And Download</span><a class="closebtn" onclick="document.getElementById('psd_overlay').style.display = 'none'">❌</a><br/>
+            <input type = "password" id = "tt_password" style = "background-color: white; padding: 10px;border-style: solid;" placeholder="Enter Password">
+            <button onclick = "saveDataNote(4)" class = "sv_btn">Download</button><br>
+            <span class = "sv_txt">Enter A Password To Encrypt Your Notes With. If You Dont Want A Password Leave It Empty</span>
+        </div>
+    </div>
+    <div id="notes" style="position: relative;">
+        <div id="todolist">
+            <span style="color:navy;font-size: 30px;font-weight: bold;text-align: center;font-family: Arial;">To Do.</span><span style="position: absolute;top: 0; right: 10px;font-size: 30px;" class="fa fa-chevron-down" id="tododropdown" onclick="tododropper();"></span>
+            <input type="text" id="newtodotask" style="background-color: white;outline:none;color:red;font-weight:bold;font-family:Consolas;padding: 10px 10px 10px 10px;border: 10px ;"><button class="fa fa-plus" style="color: crimson;font-size: 30px;background-color: cyan;border-radius: 30px 30px 30px 30px;margin: 5px 5px 5px 5px;padding: 5px;padding-top: 5px;padding-bottom:5px;" onclick="addToDo(0);"></button>
+            <div id="todotasks" style="overflow-y: scroll;height: 400px;"></div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <!-- (c) Chris Veness MIT Licence - AES-GCM Encryption And Decryption-->
+    <script src="aes-gcm.js"></script>
+</body>
+</html>
