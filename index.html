@@ -26,12 +26,12 @@
 </head>
 
 <body style="background-color: #000000;">
+    <img src = "logo.png" style = "width:85px;color:blue; float:right;">
     <div id="topnav" style="background-color: cyan;border-radius:30px 30px 30px 30px;font-size: 175%;">
     <span id="newnote" class="fa fa-sticky-note" style="margin-left:20px;" onclick="addNewNote(0);"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNCAyMnYtMjBoMTZ2MTEuNTQzYzAgNC4xMDctNiAyLjQ1Ny02IDIuNDU3czEuNTE4IDYtMi42MzggNmgtNy4zNjJ6bTE4LTcuNjE0di0xNC4zODZoLTIwdjI0aDEwLjE4OWMzLjE2MyAwIDkuODExLTcuMjIzIDkuODExLTkuNjE0em0tNS0xLjM4NmgtMTB2LTFoMTB2MXptMC00aC0xMHYxaDEwdi0xem0wLTNoLTEwdjFoMTB2LTF6Ii8+PC9zdmc+"></span>
     <span id="refresh" class="fa fa-refresh" style="margin-left:20px;" onclick="window.location.reload()"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNOSAxMmwtNC40NjMgNC45NjktNC41MzctNC45NjloM2MwLTQuOTcgNC4wMy05IDktOSAyLjM5NSAwIDQuNTY1Ljk0MiA2LjE3OSAyLjQ2OGwtMi4wMDQgMi4yMzFjLTEuMDgxLTEuMDUtMi41NTMtMS42OTktNC4xNzUtMS42OTktMy4zMDkgMC02IDIuNjkxLTYgNmgzem0xMC40NjMtNC45NjlsLTQuNDYzIDQuOTY5aDNjMCAzLjMwOS0yLjY5MSA2LTYgNi0xLjYyMyAwLTMuMDk0LS42NS00LjE3NS0xLjY5OWwtMi4wMDQgMi4yMzFjMS42MTMgMS41MjYgMy43ODQgMi40NjggNi4xNzkgMi40NjggNC45NyAwIDktNC4wMyA5LTloM2wtNC41MzctNC45Njl6Ii8+PC9zdmc+"></span>
     <span id="gitredirect" class="fa fa-github" style="margin-left:20px;" onclick="window.open('https://github.com/mrtechtroid/mttnotes/')" style="color:black;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMGMtNi42MjYgMC0xMiA1LjM3My0xMiAxMiAwIDUuMzAyIDMuNDM4IDkuOCA4LjIwNyAxMS4zODcuNTk5LjExMS43OTMtLjI2MS43OTMtLjU3N3YtMi4yMzRjLTMuMzM4LjcyNi00LjAzMy0xLjQxNi00LjAzMy0xLjQxNi0uNTQ2LTEuMzg3LTEuMzMzLTEuNzU2LTEuMzMzLTEuNzU2LTEuMDg5LS43NDUuMDgzLS43MjkuMDgzLS43MjkgMS4yMDUuMDg0IDEuODM5IDEuMjM3IDEuODM5IDEuMjM3IDEuMDcgMS44MzQgMi44MDcgMS4zMDQgMy40OTIuOTk3LjEwNy0uNzc1LjQxOC0xLjMwNS43NjItMS42MDQtMi42NjUtLjMwNS01LjQ2Ny0xLjMzNC01LjQ2Ny01LjkzMSAwLTEuMzExLjQ2OS0yLjM4MSAxLjIzNi0zLjIyMS0uMTI0LS4zMDMtLjUzNS0xLjUyNC4xMTctMy4xNzYgMCAwIDEuMDA4LS4zMjIgMy4zMDEgMS4yMy45NTctLjI2NiAxLjk4My0uMzk5IDMuMDAzLS40MDQgMS4wMi4wMDUgMi4wNDcuMTM4IDMuMDA2LjQwNCAyLjI5MS0xLjU1MiAzLjI5Ny0xLjIzIDMuMjk3LTEuMjMuNjUzIDEuNjUzLjI0MiAyLjg3NC4xMTggMy4xNzYuNzcuODQgMS4yMzUgMS45MTEgMS4yMzUgMy4yMjEgMCA0LjYwOS0yLjgwNyA1LjYyNC01LjQ3OSA1LjkyMS40My4zNzIuODIzIDEuMTAyLjgyMyAyLjIyMnYzLjI5M2MwIC4zMTkuMTkyLjY5NC44MDEuNTc2IDQuNzY1LTEuNTg5IDguMTk5LTYuMDg2IDguMTk5LTExLjM4NiAwLTYuNjI3LTUuMzczLTEyLTEyLTEyeiIvPjwvc3ZnPg=="></span>
     <span id="settingen" class="fa fa-gear" style="margin-left:20px;text-decoration: none;color:black;" onclick="stngup();" style="color:black;"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgMTMuNjE2di0zLjIzMmMtMS42NTEtLjU4Ny0yLjY5NC0uNzUyLTMuMjE5LTIuMDE5di0uMDAxYy0uNTI3LTEuMjcxLjEtMi4xMzQuODQ3LTMuNzA3bC0yLjI4NS0yLjI4NWMtMS41NjEuNzQyLTIuNDMzIDEuMzc1LTMuNzA3Ljg0N2gtLjAwMWMtMS4yNjktLjUyNi0xLjQzNS0xLjU3Ni0yLjAxOS0zLjIxOWgtMy4yMzJjLS41ODIgMS42MzUtLjc0OSAyLjY5Mi0yLjAxOSAzLjIxOWgtLjAwMWMtMS4yNzEuNTI4LTIuMTMyLS4wOTgtMy43MDctLjg0N2wtMi4yODUgMi4yODVjLjc0NSAxLjU2OCAxLjM3NSAyLjQzNC44NDcgMy43MDctLjUyNyAxLjI3MS0xLjU4NCAxLjQzOC0zLjIxOSAyLjAydjMuMjMyYzEuNjMyLjU4IDIuNjkyLjc0OSAzLjIxOSAyLjAxOS41MyAxLjI4Mi0uMTE0IDIuMTY2LS44NDcgMy43MDdsMi4yODUgMi4yODZjMS41NjItLjc0MyAyLjQzNC0xLjM3NSAzLjcwNy0uODQ3aC4wMDFjMS4yNy41MjYgMS40MzYgMS41NzkgMi4wMTkgMy4yMTloMy4yMzJjLjU4Mi0xLjYzNi43NS0yLjY5IDIuMDI3LTMuMjIyaC4wMDFjMS4yNjItLjUyNCAyLjEyLjEwMSAzLjY5OC44NTFsMi4yODUtMi4yODZjLS43NDQtMS41NjMtMS4zNzUtMi40MzMtLjg0OC0zLjcwNi41MjctMS4yNzEgMS41ODgtMS40NCAzLjIyMS0yLjAyMXptLTEyIDIuMzg0Yy0yLjIwOSAwLTQtMS43OTEtNC00czEuNzkxLTQgNC00IDQgMS43OTEgNCA0LTEuNzkxIDQtNCA0eiIvPjwvc3ZnPg=="></span>
-    <span style="font-family: Arial; color:blue; float:right; margin-right: 10px; font-size: 25px;background-color: cyan;border-radius: 30px 30px 30px 30px;padding-left:10px;padding-right: 10px;margin-top: 2px;"><b><strong><span style="color: red;">M</span>T<span style="color: rgb(255, 0, 157);">T</span><span style="color: rgb(4, 0, 255);"> Notes</span></strong></b></span>
     </div>
     <div id="settings" class="overlay" style="z-index:4;background-color: black;text-align:center;display: flex;align-items: center;justify-content: center;flex-direction: column;">
         <div style="border:lime 3px solid; width:90%;display: flex;color: white;font-family: Questrial;font-weight: bold;align-items: center;flex-direction: column;overflow-y: scroll;height:500px;margin:10px;padding:10px;padding-top: 10px;">
@@ -43,7 +43,7 @@
             <span>This Will Only Upload Into The Browser.</span>
             <hr color="lime" width = "100%">
             <span id="stng_Title" placeholder="Download Note Backup" maxlength="20">Export.</span><br>
-            <button onclick="saveDataNote(4)" class="sv_btn">Download</button>
+            <button onclick="saveDataNote(1)" class="sv_btn">Download</button>
             <span class="">The Notes Are Encrypted With AES Algorithm</span>
             <hr color="lime" width = "100%">
             <span id="stng_Title">Delete Notes</span><br>
@@ -51,14 +51,14 @@
             <span class="" id="areyousure" style="display: none;">Please Type DELETE Here:<input id="del_notes_all" type="text"><span class="sv_btn" onclick="removeAll()">Confirm</span><span class="sv_btn" onclick="document.getElementById('areyousure').style.display = 'none'">No</span></span><br>
             <hr color="lime" width = "100%">
             <span id="stng_Title" placeholder="Note Title" maxlength="20" disabled>About</span><br>
-            <span placeholder="Note Content" disabled style="white-space: pre-wrap;">Made By Mr Techtroid <a href="https://github.com/mrtechtroid" style="text-decoration: none;font-weight: bold;">github.com/mrtechtroid</a><br>Source Code Released Under MTT License<br>Digital Assets Are Copyrighted</span><br><span>Version 2.0.1</span>
+            <span placeholder="Note Content" disabled style="white-space: pre-wrap;">Made By Mr Techtroid <a href="https://github.com/mrtechtroid" style="text-decoration: none;font-weight: bold;">github.com/mrtechtroid</a><br>Source Code Released Under MTT License<br>Digital Assets Are Copyrighted</span><br><span>Version 2.0.2</span>
             <hr color="lime" width = "100%"><br>
             <span class="sv_btn" onclick = "stngdn()">CLOSE</span>
         </div>
     </div>
     </div>
     <div id="login" class="overlay" style="z-index:4;background-color: black;display: flex;align-items: center;justify-content: center;	visibility: visible;opacity: 1;flex-direction: column;">
-        <span style = "color:white;font-family: Questrial;font-size:5vh;">MTTNotes</span>
+        <span style = "color:white;font-family: Questrial;font-size:5vh;"><img src = "logo.png" style = "width:200px;color:blue; float:right;"></span>
         <div id="lgnbox" style="border:lime 3px solid; width:90%;height:max-content;display: flex;color: white;font-family: Questrial;font-weight: bold;align-items: center;justify-content: center;flex-direction: column;">
             <span id="stng_Title">Login</span><br>
             <input type="password" id="lgn_password"
@@ -74,10 +74,10 @@
         </div>
     </div>
     <div id="notes" style="position: relative;display: flex;flex-direction: row;margin:10px;">
-        <div id="title_notes" style = "" class = "title-notes" >
+        <div id="title_notes" style = "" class = "title-notes" ><span style = "display: none;visibility: hidden;" id = "tnt0"></span>
         </div>
         <div id="notebody" style = "border: 2px lime solid;width:70vw;height:90vh;font-weight: bold;color: white;display: flex;flex-direction: column;align-items: center;">
-            <input type = "text" id = "nt_title" style = "font-size: 5vh;background-color: transparent;text-decoration: none;border:none;border-bottom: 3px solid lime;outline:none;color: white;" placeholder="Your Note Title"><br>
+            <div><input type = "text" id = "nt_title" style = "font-size: 5vh;background-color: transparent;text-decoration: none;border:none;border-bottom: 3px solid lime;outline:none;color: white;" placeholder="Your Note Title"><input id = "colorpicker" type="color" id="favcolor" name="favcolor" value="#ff0000" style="width:2vw;border-radius:100px;background-color:black" onchange="changecolor(this.value,'+noteno+')"></div><br>
             <textarea id = "nt_content" style = "height:40vh;width:60vw;color:cyan;background-color: transparent;outline: none;font-size: 3vh;font-family: Arial, Helvetica, sans-serif;overflow:scroll;resize: none;" placeholder="Your Notes Content" onchange = "rendererMK()" onkeyup="rendererMK()"></textarea>
             <div id = "parsed" style = "overflow-y: scroll;height:30vh;border:tomato3px solid;width: 60vw;background-color: white;margin:10px;color:black;font-family: Arial, Helvetica, sans-serif;" onclick = "rendererMK()"></div>
         </div>

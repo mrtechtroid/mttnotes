@@ -103,7 +103,7 @@ function addNewNote(type,title,content,color,noteno) {
         noteno = String(Date.now())
     }
     a = document.getElementById("title_notes")
-    a.insertAdjacentHTML('beforeend', '<div class = "t_notes" id = "tnt'+noteno+'" onclick = "change2('+noteno+')"><span class = "tntc2" id = "tntc'+noteno+'">'+title+'</span><a class="closebtn" onclick="deleteNote('+noteno+');">❌</a><input type="color" id="favcolor" name="favcolor" value="#ff0000" style="width:20px;border-radius:30px 30px 30px 30px;background-color:black" onchange="changecolor(this.value,'+noteno+')"></div>');
+    a.insertAdjacentHTML('beforeend', '<div class = "t_notes" id = "tnt'+noteno+'" onclick = "change2('+noteno+')"><span class = "tntc2" id = "tntc'+noteno+'">'+title+'</span><a class="closebtn" onclick="deleteNote('+noteno+');">❌</a></div>');
     document.getElementById("tnt"+noteno).style.backgroundColor = color
     notesvar = {noteno:noteno,type:"note",title:title,content:content,color:color}
     NoteJSON.push(notesvar)
@@ -136,12 +136,15 @@ function change2(noteno){
         if (NoteJSON[i].noteno == String(noteno)){
             document.getElementById("nt_title").value = NoteJSON[i].title 
             document.getElementById("nt_content").value = NoteJSON[i].content
+            document.getElementById("colorpicker").attributes.onchange.nodeValue = "changecolor(this.value,"+noteno+")"
+            rendererMK()
         }
     }
 }
 //------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------
 function saveDataNote(dwndType) {
+    change2(0)
     noteno = document.getElementsByClassName("notes").length
     const stringifiedjson = JSON.stringify(NoteJSON)
     const bytesjson = new TextEncoder().encode(stringifiedjson);
@@ -154,18 +157,10 @@ function saveDataNote(dwndType) {
     }
     const astxt = btoa(stringifiedjson)
     if (dwndType == "1") {
-        let NoteTxt = new Blob([bytestxt], { type: "application/txt;charset=utf-8" })
-        downloadBlob(NoteTxt, "notes" + String(Date.now()) + ".mttn")
-    } else if (dwndType == "2") {
-        localStorage.setItem("data", astxt)
-    } else if (dwndType == "3"){
-        let NoteJSONblob = new Blob([bytesjson], { type: "application/json;charset=utf-8" });
-        downloadBlob(NoteJSONblob, "mttnotes" + String(Date.now()) + ".json")
-    } else if (dwndType == "4") {
         var encrypted
         m = aesGcmEncrypt(byttxt, notepassword)
         m.then(function(result) {encrypted = result;encrypted = new TextEncoder().encode(encrypted); encblob = new Blob([encrypted], { type: "application/txt;charset=utf-8" });downloadBlob(encblob, "notes" + String(Date.now()) + ".mttn")});     
-    } else if (dwndType == "5") {
+    } else if (dwndType == "2") {
         pswrd = notepassword
         var encrypted
         m = aesGcmEncrypt(byttxt, pswrd)
@@ -195,6 +190,7 @@ function json2notes(jspn){
     }
     document.getElementById("login").style.display = "none"
     notepassword = document.getElementById("lgn_password").value
+    nosaveData = "1"
 }
 var filecontent
 // https://stackoverflow.com/a/29176118
@@ -231,10 +227,10 @@ function syncfromlocal(){
     var decrypted
     m.then(function(result) {decrypted = result;decrypted = decrypted.replace("MTTNotesV1:","");decryptedatb = atob(decrypted);decryptedJSON = JSON.stringify(decryptedatb);parseUplJSON(decryptedJSON)});  
 }
-var nosaveData = "1"
+var nosaveData = "0"
 window.onbeforeunload=function(event){
     if (nosaveData == "1"){
-        saveDataNote(5)
+        saveDataNote(2)
     }
     
   };
@@ -253,12 +249,7 @@ function stngdn(){
     document.getElementById("settings").style.visibility = "hidden"
 	document.getElementById("settings").style.opacity = "0";
 }
-// syncfromlocal()
-// if (window.localStorage.getItem("data") == "" || ){
-//     document.getElementById("lgnbox").style.display = "none"
-// } else {
-//     document.getElementById("crbox").style.display = "none"
-// }
+
 notepassword = document.getElementById("lgn_password").value
 
 function checkEmpty(){
@@ -281,6 +272,7 @@ function sgnup() {
     }else{
         alert("Passwords Dont Match")
     }
+    nosaveData = "1"
 }
 checkEmpty()
 function rendererMK(){
