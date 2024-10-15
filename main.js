@@ -215,7 +215,7 @@ var openFile = function(event) {
 
 function parseUplJSON(jsoni){
     // console.log(JSON.parse(jsoni))
-    json2notes(JSON.parse(jsoni))
+    json2notes(JSON.parse(JSON.parse(jsoni)))
     
 }
 function uploadnote(){
