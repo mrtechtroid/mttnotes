@@ -89,6 +89,7 @@ async function aesGcmDecrypt(ciphertext, password) {
 /* Normal Note Functions */
 function changecolor(color,noteno){
     document.getElementById("tnt"+noteno).style.backgroundColor = color;
+    let a = NoteJSON.length;
     for (i=0;i<a;i++){
         if (NoteJSON[i].noteno == String(noteno)){
             NoteJSON[i].color = color
@@ -110,7 +111,7 @@ function addNewNote(type,title,content,color,noteno) {
 };
 function deleteNote(noteno) {
     document.getElementById("tnt" + noteno).remove();
-    a = NoteJSON.length
+    a = NoteJSON.length;
     for (i=0;i<a;i++){
         if (NoteJSON[i].noteno == String(noteno)){
             NoteJSON.splice(i,1)
@@ -122,7 +123,7 @@ function change2(noteno){
     for (i=0;i<b;i++){
         document.getElementsByClassName("t_notes")[i].style.borderColor = "cyan"
     }
-    document.getElementById("tnt"+noteno).style.borderColor = "purple"
+    var flag_ = false;
     a = NoteJSON.length
     for (i=0;i<a;i++){
         if (NoteJSON[i].noteno == String(activenote)){
@@ -130,7 +131,15 @@ function change2(noteno){
             document.getElementById("tntc"+activenote).innerText = document.getElementById("nt_title").value
             NoteJSON[i].content = document.getElementById("nt_content").value
         }
+	if (NoteJSON[i].noteno == String(noteno)){
+		flag_ = true;
+	}
     }
+    if (!flag){
+	  console.log("Error: NoteNo not found");
+	  return;  
+    }
+    document.getElementById("tnt"+noteno).style.borderColor = "purple"
     activenote = noteno
     for (i=0;i<a;i++){
         if (NoteJSON[i].noteno == String(noteno)){
@@ -185,7 +194,7 @@ function json2notes(jspn){
             description = jsondata[i].description
             status = jsondata[i].status
             noteno = jsondata[i].noteno
-            addToDo(1,description,status,noteno)
+            // addToDo(1,description,status,noteno)   //removed_todo_in_new_version. 
         }
     }
     document.getElementById("login").style.display = "none"
@@ -203,21 +212,17 @@ var openFile = function(event) {
     };
     reader.readAsText(input.files[0]);
   };
-var tjson
+
 function parseUplJSON(jsoni){
-    tojson = jsoni
-    tojson = JSON.parse(tojson)
-    tojson = JSON.parse(tojson)
-    tjson = tojson
-    console.log(tojson)
-    json2notes(tojson)
+    // console.log(JSON.parse(jsoni))
+    json2notes(JSON.parse(jsoni))
     
 }
 function uploadnote(){
     upwrd = document.getElementById("up_password").value
     m = aesGcmDecrypt(filecontent, upwrd)
     var decrypted
-    m.then(function(result) {decrypted = result;decrypted = decrypted.replace("MTTNotesV1:","");decryptedatb = atob(decrypted);decryptedJSON = JSON.stringify(decryptedatb);parseUplJSON(decryptedJSON)});  
+    m.then(function(result) {decrypted = result;decrypted = decrypted.replace("MTTNotesV1:","");decryptedatb = atob(decrypted);decryptedJSON = JSON.stringify(decryptedatb);parseUplJSON(decryptedJSON);stngdn();});  
 }
 function syncfromlocal(){
     a = localStorage.getItem("data")
