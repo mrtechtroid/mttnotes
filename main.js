@@ -135,7 +135,7 @@ function change2(noteno){
 		flag_ = true;
 	}
     }
-    if (!flag){
+    if (!flag_){
 	  console.log("Error: NoteNo not found");
 	  return;  
     }
